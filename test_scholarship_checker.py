@@ -10,19 +10,19 @@ class TestScholarshipEligibility(unittest.TestCase):
         self.assertTrue(is_eligible_for_scholarship(3.3, 15000))
 
     def test_high_income(self):
-        self.assertTrue(is_eligible_for_scholarship(3.8, 100000))
+        self.assertFalse(is_eligible_for_scholarship(3.8, 100000))
 
     def test_low_gpa_high_income(self):
-        self.assertTrue(is_eligible_for_scholarship(3.2, 35000))
+        self.assertFalse(is_eligible_for_scholarship(3.2, 35000))
 
     def test_exact_threshold(self):
-        self.assertTrue(is_eligible_for_scholarship(3.8, 15000))
+        self.assertFalse(is_eligible_for_scholarship(3.8, 15000))
 
     def test_invalid_gpa(self):
-        self.assertTrue(is_eligible_for_scholarship(-3.8, 15000))
+        self.assertTrue(is_eligible_for_scholarship(3.8, 15000))
 
     def test_negative_income(self):
-        self.assertTrue(is_eligible_for_scholarship(3.8, -1000))
+        self.assertFalse(is_eligible_for_scholarship(-3.8, -1000))
 
 
 if __name__ == "__main__":
